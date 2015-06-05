@@ -16,7 +16,7 @@ module.exports = {
     user.save( function(err, users){
       if(err) {
         if(err.name == 'MongoError') {
-          res.status(400).json({ error: 'Email is already registered before. Please choose another' });
+          res.status(400).json({ err: err, error: 'Email is already registered before. Please choose another' });
         } else {
           res.status(500).json({ error: 'Server error' });
         }
