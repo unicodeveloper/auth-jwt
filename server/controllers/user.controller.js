@@ -7,7 +7,7 @@ module.exports = {
 
   registerUser: function(req, res){
     var user  = new User();
-    var token = jwt.sign(user, secrets.sessionSecret);
+    var token = jwt.sign(user, secrets.sessionSecret, { expiresInMinutes: 1440 });
 
     user.firstname = req.body.firstname;
     user.lastname  = req.body.lastname;
