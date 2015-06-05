@@ -1,8 +1,9 @@
 var mongoose          = require('mongoose'),
     bcrypt            = require('bcrypt'),
     userSchema        =  mongoose.Schema({
-    firstname:     { type: String, required: true },
-    lastname:      { type: String, required: true },
+    username:      { type: String, required: true, unique: true},
+    firstname:     { type: String, default: 'First name'},
+    lastname:      { type: String, default: 'Last name' },
     email:         { type: String, required: true, unique: true },
     password:      { type: String, required: true },
     admin:         { type: Boolean, default: false },
