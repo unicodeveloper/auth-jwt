@@ -22,7 +22,7 @@ module.exports = {
           res.status(500).json({ error: 'Server error' });
         }
       } else {
-        res.status(200).json({ success: true, token: token, message: "User Registered successfully" });
+        res.status(200).json({ token: token, success: true, message: "User Registered successfully" });
       }
     });
   },
