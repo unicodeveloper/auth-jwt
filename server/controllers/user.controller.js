@@ -9,8 +9,7 @@ module.exports = {
     var user  = new User();
     var token = jwt.sign(user, secrets.sessionSecret, { expiresInMinutes: 1440 });
 
-    user.firstname = req.body.firstname;
-    user.lastname  = req.body.lastname;
+    user.username = req.body.username;
     user.email     = req.body.email;
     user.password  = user.hashPassword(req.body.password);
 
