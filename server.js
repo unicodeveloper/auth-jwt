@@ -1,7 +1,7 @@
 require('dotenv').load();
 var  express       = require('express'),
      jwt           = require('jsonwebtoken');
-     morgan       = require('morgan'),
+     morgan        = require('morgan'),
      bodyParser    = require('body-parser'),
      mongoose      = require('mongoose'),
      User          = require('./server/models/user.model'),

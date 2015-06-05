@@ -7,7 +7,6 @@ var mongoose          = require('mongoose'),
     password:      { type: String, required: true },
     admin:         { type: Boolean, default: false },
     user_avatar:   { type: String, default: 'http://prosperotemuyiwa.com' },
-    token:         { type: String },
     registered_on: { type: Date, default: Date.now }
 });
 

@@ -1,4 +1,4 @@
-var User       = require('./controllers/user.controller');
+var User        = require('./controllers/user.controller');
 var jwt         = require('jsonwebtoken'),
     secrets     = require('../config/secrets'),
     verifyToken = require('../config/tokenMiddleware'),

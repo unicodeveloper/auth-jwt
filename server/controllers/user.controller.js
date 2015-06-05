@@ -13,7 +13,6 @@ module.exports = {
     user.lastname  = req.body.lastname;
     user.email     = req.body.email;
     user.password  = user.hashPassword(req.body.password);
-    user.token     = token;
 
     user.save( function(err, users){
       if(err) {
@@ -23,7 +22,7 @@ module.exports = {
           res.status(500).json({ error: 'Server error' });
         }
       } else {
-        res.status(200).json({ success: true, message: "User Registered successfully" });
+        res.status(200).json({ success: true, token: token, message: "User Registered successfully" });
       }
     });
   },
