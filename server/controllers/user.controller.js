@@ -2,10 +2,22 @@ var User        = require('../models/user.model'),
     jwt         = require('jsonwebtoken');
 
 module.exports = {
+  /**
+   * [welcome -- Welcome Notice]
+   * @param  req
+   * @param  res
+   * @return Void
+   */
   welcome: function(req, res){
     res.status(200).json({ message: 'Welcome to our api shinanengan'});
   },
 
+  /**
+   * [registerUser -- Register User with username, email and password]
+   * @param  req
+   * @param  res
+   * @return Void
+   */
   registerUser: function(req, res){
     var user  = new User();
     user.username  = req.body.username;
@@ -25,6 +37,12 @@ module.exports = {
     });
   },
 
+  /**
+   * [authenticateUserByUsername -- Authenticate User by Username and Password]
+   * @param  req
+   * @param  res
+   * @return Void
+   */
   authenticateUserByUsername: function(req, res){
     var user  = new User();
     var token = jwt.sign(user, secrets.sessionSecret, { expiresInMinutes: 1440 });
@@ -58,6 +76,12 @@ module.exports = {
     }});
   },
 
+  /**
+   * [authenticateUserByEmail -- Authenticate User Email and Password]
+   * @param  req
+   * @param  res
+   * @return Void
+   */
   authenticateUserByEmail: function(req, res){
     var user  = new User();
     var token = jwt.sign(user, secrets.sessionSecret, { expiresInMinutes: 1440 });
@@ -91,6 +115,12 @@ module.exports = {
     }});
   },
 
+  /**
+   * [getAllUsers -- Get All the Users registered on the platform]
+   * @param   req
+   * @param   res
+   * @return  void
+   */
   getAllUsers: function(req, res){
      User.find({}, function(err, users) {
         res.json(users);
