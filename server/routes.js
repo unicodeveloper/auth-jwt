@@ -9,6 +9,6 @@ module.exports = function(app) {
   app.get('/api', verifyToken, User.welcome);
   app.get('/api/users', verifyToken, User.getAllUsers);
 
-  app.post('/api/login', User.authenticateUser);
+  app.post('/api/login', User.authenticateUserByUsername);
   app.post('/api/register', User.registerUser);
 };
